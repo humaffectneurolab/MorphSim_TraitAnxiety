@@ -246,8 +246,12 @@ mantel(HAnnaKSTAI, dist(t(logscaled)), method = "spearman", permutations = 10000
 mantel(HAnnaKSTAI, dist(t(Rlogscaled)), method = "spearman", permutations = 10000)
 
 ## control tract
+mantel(HAnnaKSTAI, dist(t(yh_OINE_prob_L)), method = "spearman", permutations = 10000)
+mantel(HAnnaKSTAI, dist(t(yh_OINE_prob_R)), method = "spearman", permutations = 10000)
 mantel(HAnnaKSTAI, dist(t(yh_OINE_prob_5p_L)), method = "spearman", permutations = 10000)
 mantel(HAnnaKSTAI, dist(t(yh_OINE_prob_5p_R)), method = "spearman", permutations = 10000)
+mantel(HAnnaKSTAI, dist(t(yh_OINE_prob_10p_L)), method = "spearman", permutations = 10000)
+mantel(HAnnaKSTAI, dist(t(yh_OINE_prob_10p_R)), method = "spearman", permutations = 10000)
 
 ## demographics
 yAnnaKSex = data.frame()
@@ -351,11 +355,16 @@ mantel(seniorAnnaKSTAI, dist(ohlogscaled), method = "spearman", permutations = 1
 mantel(seniorAnnaKSTAI, dist(Rohlogscaled), method = "spearman", permutations = 10000)
 
 ## control tract
+mantel(seniorAnnaKSTAI, dist(t(oh_OINE_prob_L)), method = "spearman", permutations = 10000)
+mantel(seniorAnnaKSTAI, dist(t(oh_OINE_prob_R)), method = "spearman", permutations = 10000)
 mantel(seniorAnnaKSTAI, dist(t(oh_OINE_prob_5p_L)), method = "spearman", permutations = 10000)
+mantel(seniorAnnaKSTAI, dist(t(oh_OINE_prob_5p_R)), method = "spearman", permutations = 10000)
+mantel(seniorAnnaKSTAI, dist(t(oh_OINE_prob_10p_L)), method = "spearman", permutations = 10000)
+mantel(seniorAnnaKSTAI, dist(t(oh_OINE_prob_10p_R)), method = "spearman", permutations = 10000)
+
 mantel.partial(seniorAnnaKSTAI, dist(t(oh_prob_5p_L)), dist(t(oh_OINE_prob_5p_L)),
                method = "spearman", permutations = 10000)
 mantel(dist(t(oh_prob_5p_L)), dist(t(oh_OINE_prob_5p_L)), method = "spearman", permutations = 10000)
-mantel(seniorAnnaKSTAI, dist(t(oh_OINE_prob_5p_R)), method = "spearman", permutations = 10000)
 
 ## demographics
 seniorAnnaKAgeabs = data.frame()
