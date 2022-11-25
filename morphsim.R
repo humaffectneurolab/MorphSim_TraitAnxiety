@@ -124,6 +124,46 @@ for (i in 1:45) {
 }
 
 ##########################################################################################################################################
+##################### Trimming down vectorized tracts to only contain the canvas space (i.e. eliminating voxels outside the canvas space)
+##################### (This step might need to be reiterated to figure out rows and columns that correspond to the canvas space)
+
+dir = c("E:/R Studio/LEMON/yh_probmap_5p_L.csv")
+dir_file = list.files(dir)
+dir_file_cnt = length(dir_file)
+TrimmedCSpace = data.frame(matrix(nrow=1))
+for (i in 1:dir_file_cnt) {
+  name = paste(substr(paste(dir_file[i]), 1, 10), "_Trim", sep="")
+  assign(name, c())
+  
+  sub = assign(name, read.table(
+    paste(dir, "/", dir_file[i], sep = ""),
+    header = F,
+    stringsAsFactors = F
+  ))
+  print(i)
+  
+  row = assign(name, subset(sub, rowMeans(sub) != 0))
+  col = assign(name, row[, c(46:73)]) ### enter columns that correspond to the canvas space
+  
+  subv = assign(paste(name, "_v", sep = ""), c())
+  
+  for (t in 1:1516) { ### enter number of rows that correspond to the canvas space 
+    for (q in 1:28) { ### enter number of columns that correspond to the canvas space 
+      if (col[t, q] > 0) {
+        subv = (c(subv, col[t, q]))
+      }
+    }
+  }
+  
+  vec = assign(paste(name, "_v", sep = ""), subv)
+  
+  TrimmedCSpace = cbind(TrimmedCSpace, as.data.frame(vec))
+}
+
+TrimmedCSpace = TrimmedCSpace[, -1]
+write.csv(TrimmedCSpace, file = "E:/R Studio/LEMON/yh_probmap_5p_L.csv")
+
+##########################################################################################################################################
 ##################################################################### Loading Tract Data
 
 yh_prob_L = read.csv("E:/R Studio/LEMON/yh_probmap_L.csv", header = T)
