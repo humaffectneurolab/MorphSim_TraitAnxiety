@@ -11,3 +11,5 @@ https://www.nitrc.org/projects/mpilmbb and https://doi.org/10.18112/openneuro.ds
 These data need to be preprocessed in order to be subject to input for this code.
 Behavioral data were manipulated in R.
 Neuroimaging data were preprocessed using FSL v6.0, following procedures described in detail in the manuscript.
+
+Published manuscript: https://www.pnas.org/doi/full/10.1073/pnas.2205162119
